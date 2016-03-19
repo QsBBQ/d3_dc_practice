@@ -30,8 +30,9 @@
        var parseDate = d3.time.format("%m/%d/%Y").parse;
        ;
        data.forEach(function (d) {
-           d.date = Date.parse(d.date);
+           d.date = parseDate(d.date);
            d.total = d.http_404 + d.http_200 + d.http_302;
+           d.Year = d.date.getFullYear();
        })
 
        var dateDim = ndx.dimension(function (d) {
